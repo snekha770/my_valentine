@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Valentine 💖</title>
+<title>My Valentine 💘</title>
 
 <style>
 body {
@@ -12,21 +12,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Comic Sans MS', cursive;
+    font-family:
+      'Poppins',
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Noto Color Emoji',
+      sans-serif;
 }
 
 .container {
     background: white;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 22px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
     width: 320px;
 }
 
 img {
-    width: 200px;
-    height: auto;
+    width: 220px;
+    border-radius: 15px;
 }
 
 h1 {
@@ -58,7 +63,9 @@ button {
 <div class="container">
     <h1 id="text">Will you be my Valentine? 💕</h1>
 
-    <img id="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+    <!-- Initial Milky -->
+    <img id="gif"
+         src="https://media.tenor.com/0AVbKGY_MxMAAAAC/milk-and-mocha-bear.gif">
 
     <div>
         <button id="yes">Yes 💖</button>
@@ -69,28 +76,33 @@ button {
 <script>
 let noCount = 0;
 
+/* Milky sad reactions (real Milky & Mocha style GIFs) */
 const sadGifs = [
-    "https://media.giphy.com/media/9Y5BbDSkSTiY8/giphy.gif",
-    "https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif",
-    "https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif",
-    "https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif",
-    "https://media.giphy.com/media/3og0IPxMM0erATueVW/giphy.gif"
+  "https://media.tenor.com/jx3k6fY6UjYAAAAC/milk-and-mocha-bear-sad.gif",
+  "https://media.tenor.com/8Qw1xwZ0fKAAAAAC/milk-and-mocha-bear-cry.gif",
+  "https://media.tenor.com/2roX3uxz_68AAAAC/milk-and-mocha-bear-sad.gif",
+  "https://media.tenor.com/Qxk5m4z7XKAAAAAC/milk-and-mocha-bear-upset.gif"
 ];
 
 document.getElementById("no").onclick = () => {
     if (noCount < sadGifs.length) {
         document.getElementById("gif").src = sadGifs[noCount];
-        document.getElementById("text").innerText = "Milky is sad 🥺 Please say yes...";
+        document.getElementById("text").innerText =
+          "Milky is sad 🥺 please don’t say no...";
         noCount++;
+    } else {
+        document.getElementById("no").style.display = "none";
+        document.getElementById("text").innerText =
+          "Milky is still waiting… 💔";
     }
 };
 
 document.getElementById("yes").onclick = () => {
     document.getElementById("gif").src =
-        "https://media.giphy.com/media/gnXG2hODaCOru/giphy.gif";
+      "https://media.tenor.com/gnXG2hODaCOruAAAA/milk-and-mocha-bear-kiss.gif";
 
     document.getElementById("text").innerHTML =
-        "Milky & Mocha 💋<br><br>💖 Snekha ❤️ Bala Vignnesh 💖";
+      "💋 Milky & Mocha 💋<br><br><b>Snekha ❤️ Bala Vignnesh</b>";
 };
 </script>
 
