@@ -2,58 +2,57 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Valentine 💘</title>
+<title>My Valentine 💖</title>
 
 <style>
-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ffd6e8, #fff1f7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family:
-      'Poppins',
-      'Apple Color Emoji',
-      'Segoe UI Emoji',
-      'Noto Color Emoji',
-      sans-serif;
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#ffd6e8,#fff1f7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family: 'Comic Sans MS', cursive,
+               'Apple Color Emoji',
+               'Segoe UI Emoji',
+               'Noto Color Emoji';
 }
 
-.container {
-    background: white;
-    padding: 30px;
-    border-radius: 22px;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-    width: 320px;
+.container{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  width:330px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
 }
 
-img {
-    width: 220px;
-    border-radius: 15px;
+h1{
+  color:#ff4d88;
 }
 
-h1 {
-    color: #ff4d88;
+img{
+  width:220px;
+  border-radius:15px;
+  margin:15px 0;
 }
 
-button {
-    padding: 12px 22px;
-    font-size: 16px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
+button{
+  padding:12px 24px;
+  font-size:17px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  margin:10px;
 }
 
-#yes {
-    background: #ff4d88;
-    color: white;
+#yes{
+  background:#ff4d88;
+  color:white;
 }
 
-#no {
-    background: #ddd;
+#no{
+  background:#ddd;
 }
 </style>
 </head>
@@ -61,48 +60,45 @@ button {
 <body>
 
 <div class="container">
-    <h1 id="text">Will you be my Valentine? 💕</h1>
+  <h1 id="text">Will you be my Valentine? 💕</h1>
 
-    <!-- Initial Milky -->
-    <img id="gif"
-         src="https://media.tenor.com/0AVbKGY_MxMAAAAC/milk-and-mocha-bear.gif">
+  <!-- START GIF -->
+  <img id="gif" src="PASTE_PAPA_NORMAL_GIF_HERE">
 
-    <div>
-        <button id="yes">Yes 💖</button>
-        <button id="no">No 😢</button>
-    </div>
+  <div>
+    <button id="yes">YES 💖</button>
+    <button id="no">NO 😢</button>
+  </div>
 </div>
 
 <script>
 let noCount = 0;
 
-/* Milky sad reactions (real Milky & Mocha style GIFs) */
+/* 😢 PAPA SAD GIFS (change links) */
 const sadGifs = [
-  "https://media.tenor.com/jx3k6fY6UjYAAAAC/milk-and-mocha-bear-sad.gif",
-  "https://media.tenor.com/8Qw1xwZ0fKAAAAAC/milk-and-mocha-bear-cry.gif",
-  "https://media.tenor.com/2roX3uxz_68AAAAC/milk-and-mocha-bear-sad.gif",
-  "https://media.tenor.com/Qxk5m4z7XKAAAAAC/milk-and-mocha-bear-upset.gif"
+  "PASTE_PAPA_SAD_GIF_1",
+  "PASTE_PAPA_SAD_GIF_2",
+  "PASTE_PAPA_SAD_GIF_3",
+  "PASTE_PAPA_SAD_GIF_4",
+  "PASTE_PAPA_SAD_GIF_5"
 ];
 
+/* 💋 PAPA & MOCHA KISS GIF */
+const kissGif = "PASTE_PAPA_MOCHA_KISS_GIF";
+
 document.getElementById("no").onclick = () => {
-    if (noCount < sadGifs.length) {
-        document.getElementById("gif").src = sadGifs[noCount];
-        document.getElementById("text").innerText =
-          "Milky is sad 🥺 please don’t say no...";
-        noCount++;
-    } else {
-        document.getElementById("no").style.display = "none";
-        document.getElementById("text").innerText =
-          "Milky is still waiting… 💔";
-    }
+  if(noCount < sadGifs.length){
+    document.getElementById("gif").src = sadGifs[noCount];
+    document.getElementById("text").innerText =
+      "Papa is sad 🥺 Please say YES…";
+    noCount++;
+  }
 };
 
 document.getElementById("yes").onclick = () => {
-    document.getElementById("gif").src =
-      "https://media.tenor.com/gnXG2hODaCOruAAAA/milk-and-mocha-bear-kiss.gif";
-
-    document.getElementById("text").innerHTML =
-      "💋 Milky & Mocha 💋<br><br><b>Snekha ❤️ Bala Vignnesh</b>";
+  document.getElementById("gif").src = kissGif;
+  document.getElementById("text").innerHTML =
+    "Papa & Mocha 💋<br><br>💖 Snekha ❤️ Bala Vignnesh 💖";
 };
 </script>
 
