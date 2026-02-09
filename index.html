@@ -1,98 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>My Valentine 💖</title>
-
-<style>
-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ffd6e8, #fff1f7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Comic Sans MS', cursive;
-}
-
-.container {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    width: 320px;
-}
-
-img {
-    width: 200px;
-    height: auto;
-}
-
-h1 {
-    color: #ff4d88;
-}
-
-button {
-    padding: 12px 22px;
-    font-size: 16px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
-}
-
-#yes {
-    background: #ff4d88;
-    color: white;
-}
-
-#no {
-    background: #ddd;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffdeeb;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+        #container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        h1 { color: #d63384; }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn { background-color: #4caf50; color: white; }
+        #noBtn { background-color: #f44336; color: white; position: relative; }
+        .hidden { display: none; }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1 id="text">Will you be my Valentine? 💕</h1>
+    <div id="container">
+        <div id="askSection">
+            <img id="mainGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/W6LoiK6y3X1n7Bf6S4/giphy.gif" alt="Milky Mocha Love">
+            <h1 id="questionText">Will you be my Valentine, Snekha?</h1>
+            
+            <div class="buttons">
+                <button id="yesBtn">Yes!</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
 
-    <img id="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
-
-    <div>
-        <button id="yes">Yes 💖</button>
-        <button id="no">No 😢</button>
+        <div id="successSection" class="hidden">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/LnL6W1bM2T8m6tO6Yk/giphy.gif" alt="Milky Mocha Happy">
+            <h1 style="color: #d63384;">Yay! Happy Valentine's Day!</h1>
+            <p style="font-size: 1.5rem; font-weight: bold;">Bala Vignnesh ❤️ Snekha</p>
+        </div>
     </div>
-</div>
 
-<script>
-let noCount = 0;
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const mainGif = document.getElementById('mainGif');
+        const questionText = document.getElementById('questionText');
+        const askSection = document.getElementById('askSection');
+        const successSection = document.getElementById('successSection');
 
-const sadGifs = [
-    "https://media.giphy.com/media/9Y5BbDSkSTiY8/giphy.gif",
-    "https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif",
-    "https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif",
-    "https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif",
-    "https://media.giphy.com/media/3og0IPxMM0erATueVW/giphy.gif"
-];
+        const sadGifs = [
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/BEob50RKnWVnm/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/OPU6wUKARAOztu69sr/giphy.gif"
+        ];
 
-document.getElementById("no").onclick = () => {
-    if (noCount < sadGifs.length) {
-        document.getElementById("gif").src = sadGifs[noCount];
-        document.getElementById("text").innerText = "Milky is sad 🥺 Please say yes...";
-        noCount++;
-    }
-};
+        const sadTexts = [
+            "Are you sure?",
+            "Think again, Snekha...",
+            "Don't do this to Bala!",
+            "I'm gonna cry...",
+            "Really? :("
+        ];
 
-document.getElementById("yes").onclick = () => {
-    document.getElementById("gif").src =
-        "https://media.giphy.com/media/gnXG2hODaCOru/giphy.gif";
+        let clickCount = 0;
 
-    document.getElementById("text").innerHTML =
-        "Milky & Mocha 💋<br><br>💖 Snekha ❤️ Bala Vignnesh 💖";
-};
-</script>
+        noBtn.addEventListener('mouseover', () => {
+            // Move the button away
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
 
+            // Change Text and Image
+            if (clickCount < sadTexts.length) {
+                questionText.innerText = sadTexts[clickCount];
+                mainGif.src = sadGifs[clickCount % sadGifs.length];
+                clickCount++;
+            }
+        });
+
+        yesBtn.addEventListener('click', () => {
+            askSection.classList.add('hidden');
+            successSection.classList.remove('hidden');
+        });
+    </script>
 </body>
 </html>
