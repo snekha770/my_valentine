@@ -12,98 +12,107 @@
             align-items: center;
             justify-content: center;
             background-color: #ffe4e1;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
         }
         #card {
             background: white;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
-            max-width: 400px;
-            width: 90%;
+            width: 350px;
+            position: relative;
         }
         img {
-            width: 250px;
-            height: auto;
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
             border-radius: 15px;
         }
-        h1 { color: #ff4d6d; font-size: 1.8rem; margin: 20px 0; }
+        h1 { color: #d63384; font-size: 1.5rem; margin: 15px 0; }
         .btn-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-top: 20px;
-            height: 50px; /* Prevents layout jump */
         }
         button {
-            padding: 12px 25px;
-            font-size: 1.1rem;
+            padding: 10px 25px;
+            font-size: 1rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            transition: transform 0.2s;
         }
         #yesBtn { background-color: #ff4d6d; color: white; }
-        #noBtn { background-color: #adb5bd; color: white; position: absolute; }
+        #noBtn { 
+            background-color: #adb5bd; 
+            color: white; 
+            position: absolute; 
+            transition: all 0.2s ease;
+        }
         .hidden { display: none; }
-        .couple-names { color: #ff4d6d; font-size: 1.5rem; margin-top: 10px; }
+        .names { color: #ff4d6d; font-size: 1.2rem; font-weight: bold; margin-top: 10px; }
     </style>
 </head>
 <body>
 
     <div id="card">
-        <div id="question-area">
-            <img id="display-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/W6LoiK6y3X1n7Bf6S4/giphy.gif" alt="Milky Mocha">
-            <h1 id="main-text">Will you be my Valentine, Snekha?</h1>
+        <div id="ask">
+            <img id="main-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/W6LoiK6y3X1n7Bf6S4/giphy.gif" alt="Mocha">
+            <h1 id="status-text">Will you be my Valentine, Snekha?</h1>
             <div class="btn-container">
-                <button id="yesBtn">Yes!</button>
-                <button id="noBtn">No</button>
+                <button id="yesBtn">Yes</button>
+                <button id="noBtn" style="left: 190px; top: 295px;">No</button>
             </div>
         </div>
 
-        <div id="happy-area" class="hidden">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/LnL6W1bM2T8m6tO6Yk/giphy.gif" alt="Happy Milky Mocha">
-            <h1>Yay! I knew you'd say Yes! ❤️</h1>
-            <div class="couple-names">Bala Vignnesh ❤️ Snekha</div>
+        <div id="success" class="hidden">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/LnL6W1bM2T8m6tO6Yk/giphy.gif" alt="Happy">
+            <h1>Yay! Happy Valentine's Day! ❤️</h1>
+            <p class="names">Bala Vignnesh ❤️ Snekha</p>
         </div>
     </div>
 
     <script>
         const noBtn = document.getElementById('noBtn');
         const yesBtn = document.getElementById('yesBtn');
-        const gif = document.getElementById('display-gif');
-        const text = document.getElementById('main-text');
-        
-        // List of sad GIFs to cycle through
+        const gif = document.getElementById('main-gif');
+        const status = document.getElementById('status-text');
+
+        // Sad Milky Mocha GIFs
         const sadGifs = [
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/BEob50RKnWVnm/giphy.gif",
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/OPU6wUKARAOztu69sr/giphy.gif"
+            "https://media.giphy.com/media/OPU6wUKARAOztu69sr/giphy.gif",
+            "https://media.giphy.com/media/BEob50RKnWVnm/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnVnZndvOWt2YXU0Z2p3Z3p3Z3p3Z3p3Z3p3Z3p3Z3p3Z3AmZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/U6Y5WqjInP6Yq0X9rS/giphy.gif"
         ];
 
-        const sadMessages = ["Are you sure?", "Think about it again!", "Bala will be sad...", "Please? :(", "Last chance!"];
+        const messages = ["Are you sure?", "Please?", "Bala will cry...", "Don't be mean!", "Think again!"];
         let count = 0;
 
-        // Make the NO button run away
+        // Moves the No button when hovered
         noBtn.addEventListener('mouseover', () => {
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            noBtn.style.left = x + 'px';
-            noBtn.style.top = y + 'px';
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
             
-            // Change text and GIF as it moves
-            if (count < sadMessages.length) {
-                text.innerText = sadMessages[count];
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+
+            // Change Text and GIF
+            if (count < messages.length) {
+                status.innerText = messages[count];
                 gif.src = sadGifs[count % sadGifs.length];
                 count++;
             }
         });
 
-        // Show success screen
         yesBtn.addEventListener('click', () => {
-            document.getElementById('question-area').classList.add('hidden');
-            document.getElementById('happy-area').classList.remove('hidden');
+            document.getElementById('ask').classList.add('hidden');
+            document.getElementById('success').classList.remove('hidden');
         });
     </script>
 </body>
