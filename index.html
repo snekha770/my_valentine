@@ -11,108 +11,111 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #ffe4e1;
-            font-family: 'Arial', sans-serif;
+            background-color: #fff0f3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
         }
         #card {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
             text-align: center;
-            width: 350px;
-            position: relative;
+            width: 320px;
+            border: 2px solid #ffb3c1;
         }
-        img {
-            width: 200px;
-            height: 200px;
-            object-fit: contain;
-            border-radius: 15px;
+        .sticker-container {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: block;
         }
-        h1 { color: #d63384; font-size: 1.5rem; margin: 15px 0; }
+        h1 { color: #ff4d6d; font-size: 1.6rem; margin: 10px 0; }
         .btn-container {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
         button {
-            padding: 10px 25px;
-            font-size: 1rem;
+            padding: 12px 25px;
+            font-size: 1.1rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 15px;
             cursor: pointer;
             font-weight: bold;
+            transition: 0.2s;
         }
-        #yesBtn { background-color: #ff4d6d; color: white; }
+        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4); }
         #noBtn { 
-            background-color: #adb5bd; 
+            background-color: #6c757d; 
             color: white; 
-            position: absolute; 
-            transition: all 0.2s ease;
+            position: absolute;
         }
         .hidden { display: none; }
-        .names { color: #ff4d6d; font-size: 1.2rem; font-weight: bold; margin-top: 10px; }
+        .couple-name { 
+            color: #c9184a; 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            margin-top: 20px;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <div id="card">
         <div id="ask">
-            <img id="main-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/W6LoiK6y3X1n7Bf6S4/giphy.gif" alt="Mocha">
+            <div id="sticker" class="sticker-container">🧸</div>
             <h1 id="status-text">Will you be my Valentine, Snekha?</h1>
             <div class="btn-container">
-                <button id="yesBtn">Yes</button>
-                <button id="noBtn" style="left: 190px; top: 295px;">No</button>
+                <button id="yesBtn">Yes!</button>
+                <button id="noBtn" style="left: 55%; top: 65%;">No</button>
             </div>
         </div>
 
         <div id="success" class="hidden">
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZ6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6bmV6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/LnL6W1bM2T8m6tO6Yk/giphy.gif" alt="Happy">
-            <h1>Yay! Happy Valentine's Day! ❤️</h1>
-            <p class="names">Bala Vignnesh ❤️ Snekha</p>
+            <div class="sticker-container">💑</div>
+            <h1>I Love You! ❤️</h1>
+            <span class="couple-name">Bala Vignnesh ❤️ Snekha</span>
+            <p style="color: #ff8fa3;">Forever and Always</p>
         </div>
     </div>
 
     <script>
         const noBtn = document.getElementById('noBtn');
         const yesBtn = document.getElementById('yesBtn');
-        const gif = document.getElementById('main-gif');
-        const status = document.getElementById('status-text');
+        const sticker = document.getElementById('sticker');
+        const statusText = document.getElementById('status-text');
 
-        // Sad Milky Mocha GIFs
-        const sadGifs = [
-            "https://media.giphy.com/media/OPU6wUKARAOztu69sr/giphy.gif",
-            "https://media.giphy.com/media/BEob50RKnWVnm/giphy.gif",
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnVnZndvOWt2YXU0Z2p3Z3p3Z3p3Z3p3Z3p3Z3p3Z3p3Z3AmZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PXM/U6Y5WqjInP6Yq0X9rS/giphy.gif"
-        ];
-
-        const messages = ["Are you sure?", "Please?", "Bala will cry...", "Don't be mean!", "Think again!"];
+        // Cartoon/Emoji "Stickers" that will never break
+        const sadStickers = ["🥺", "😢", "😭", "💔", "😿"];
+        const sadMessages = ["Are you sure?", "Think again...", "Don't say no!", "Bala is crying!", "Please?"];
         let count = 0;
 
-        // Moves the No button when hovered
+        // "No" button jumps away on hover
         noBtn.addEventListener('mouseover', () => {
-            const maxX = window.innerWidth - noBtn.offsetWidth;
-            const maxY = window.innerHeight - noBtn.offsetHeight;
+            const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+            const maxY = window.innerHeight - noBtn.offsetHeight - 20;
             
-            const newX = Math.random() * maxX;
-            const newY = Math.random() * maxY;
+            const newX = Math.max(20, Math.random() * maxX);
+            const newY = Math.max(20, Math.random() * maxY);
 
             noBtn.style.left = newX + 'px';
             noBtn.style.top = newY + 'px';
 
-            // Change Text and GIF
-            if (count < messages.length) {
-                status.innerText = messages[count];
-                gif.src = sadGifs[count % sadGifs.length];
+            // Change the sticker and text to be "sad"
+            if (count < sadMessages.length) {
+                statusText.innerText = sadMessages[count];
+                sticker.innerText = sadStickers[count % sadStickers.length];
                 count++;
             }
         });
 
+        // Click "Yes" to show the couple name
         yesBtn.addEventListener('click', () => {
             document.getElementById('ask').classList.add('hidden');
             document.getElementById('success').classList.remove('hidden');
+            noBtn.style.display = 'none'; // Make sure the No button disappears
         });
     </script>
 </body>
