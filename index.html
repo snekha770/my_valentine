@@ -3,120 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Snekha ❤️</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #fff0f3;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-        }
-        #card {
-            background: white;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
-            text-align: center;
-            width: 320px;
-            border: 2px solid #ffb3c1;
-        }
-        .sticker-container {
-            font-size: 80px;
-            margin-bottom: 20px;
-            display: block;
-        }
-        h1 { color: #ff4d6d; font-size: 1.6rem; margin: 10px 0; }
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        button {
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4); }
-        #noBtn { 
-            background-color: #6c757d; 
-            color: white; 
-            position: absolute;
-        }
-        .hidden { display: none; }
-        .couple-name { 
-            color: #c9184a; 
-            font-size: 1.4rem; 
-            font-weight: bold; 
-            margin-top: 20px;
-            display: block;
-        }
-    </style>
+    <link rel="icon" href="resources/fav.png">
+    <title>Snekha ❤️ Bala Vignnesh</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <section>
+        <div class="video-background">
+            <video autoplay loop muted playsinline>
+                <source src="resources/heart.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
-    <div id="card">
-        <div id="ask">
-            <div id="sticker" class="sticker-container">🧸</div>
-            <h1 id="status-text">Will you be my Valentine, Snekha?</h1>
-            <div class="btn-container">
-                <button id="yesBtn">Yes!</button>
-                <button id="noBtn" style="left: 55%; top: 65%;">No</button>
+        <div class="container">
+            <div class="image-box">
+                <div class="actual-image">
+                    <img src="resources/cat-heart.gif" alt="gif" class="gif" id="gif">
+                </div>
+
+                <div class="text-one">
+                    <p style="font-size: 1.4rem;text-align: center;" id="text">
+                        Bala Vignnesh 💖 will you be Snekha’s Valentine? ❤️😘
+                    </p>
+                </div>
+            </div>
+
+            <div class="yes-no">
+                <button class="yes" id="yes">Yes 💕</button>
+                <button class="no" id="no">No 😢</button>
             </div>
         </div>
+    </section>
 
-        <div id="success" class="hidden">
-            <div class="sticker-container">💑</div>
-            <h1>I Love You! ❤️</h1>
-            <span class="couple-name">Bala Vignnesh ❤️ Snekha</span>
-            <p style="color: #ff8fa3;">Forever and Always</p>
-        </div>
-    </div>
-
-    <script>
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-        const sticker = document.getElementById('sticker');
-        const statusText = document.getElementById('status-text');
-
-        // Cartoon/Emoji "Stickers" that will never break
-        const sadStickers = ["🥺", "😢", "😭", "💔", "😿"];
-        const sadMessages = ["Are you sure?", "Think again...", "Don't say no!", "Bala is crying!", "Please?"];
-        let count = 0;
-
-        // "No" button jumps away on hover
-        noBtn.addEventListener('mouseover', () => {
-            const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-            const maxY = window.innerHeight - noBtn.offsetHeight - 20;
-            
-            const newX = Math.max(20, Math.random() * maxX);
-            const newY = Math.max(20, Math.random() * maxY);
-
-            noBtn.style.left = newX + 'px';
-            noBtn.style.top = newY + 'px';
-
-            // Change the sticker and text to be "sad"
-            if (count < sadMessages.length) {
-                statusText.innerText = sadMessages[count];
-                sticker.innerText = sadStickers[count % sadStickers.length];
-                count++;
-            }
-        });
-
-        // Click "Yes" to show the couple name
-        yesBtn.addEventListener('click', () => {
-            document.getElementById('ask').classList.add('hidden');
-            document.getElementById('success').classList.remove('hidden');
-            noBtn.style.display = 'none'; // Make sure the No button disappears
-        });
-    </script>
+    <script src="js/app.js"></script>
 </body>
 </html>
