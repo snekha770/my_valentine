@@ -1,121 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For My Babe 💖</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      color: white;
-      overflow-x: hidden;
-    }
+<title>For Bala 💖</title>
+<style>
+body{
+  margin:0;
+  padding:0;
+  text-align:center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right,#ff758c,#ff7eb3);
+  color:white;
+}
 
-    .page {
-      display: none;
-      padding-top: 80px;
-    }
+.container{
+  margin-top:100px;
+}
 
-    .active {
-      display: block;
-    }
+button{
+  padding:12px 25px;
+  font-size:18px;
+  margin:15px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
 
-    h1 {
-      font-size: 35px;
-      padding: 0 20px;
-    }
+.yes{
+  background:#ff2e63;
+  color:white;
+}
 
-    button {
-      padding: 12px 25px;
-      font-size: 18px;
-      margin: 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
+.no{
+  background:white;
+  color:black;
+}
 
-    .btn-main {
-      background-color: #ff4d6d;
-      color: white;
-    }
+img{
+  margin-top:20px;
+  width:250px;
+  border-radius:10px;
+}
 
-    img {
-      width: 250px;
-      margin-top: 20px;
-      border-radius: 15px;
-    }
-
-    .box {
-      background: rgba(255,255,255,0.2);
-      padding: 20px;
-      margin: 20px auto;
-      width: 70%;
-      border-radius: 15px;
-    }
-  </style>
+</style>
 </head>
 <body>
 
-<!-- PAGE 1 -->
-<div id="page1" class="page active">
-  <h1>Babe, will you be my Valentine? 💖</h1>
-  <img src="https://share.google/SLSRjepTh5bapOZPb">
-  <br>
-  <button class="btn-main" onclick="nextPage(2)">Next 💕</button>
-</div>
+<div class="container" id="content">
 
-<!-- PAGE 2 -->
-<div id="page2" class="page">
-  <h1>Maybe I should explain the perks of being my Valentine... 😌</h1>
-  <img src="https://share.google/5mGoP6Plvl9Ad6LYQ">
-  <br>
-  <button class="btn-main" onclick="nextPage(3)">Okay 😏</button>
-</div>
+<h1>Babe, will you be my valentine? 💖</h1>
 
-<!-- PAGE 3 -->
-<div id="page3" class="page">
-  <h1>Why you should choose me as your Valentine 💘</h1>
-  <img src="https://share.google/dRj07oeMsAGAqmNqk">
+<button class="yes" onclick="nextPage1()">Yes 💕</button>
+<button class="no" onclick="showSad()">No 😢</button>
 
-  <div class="box">
-    <h2>✅ Pros</h2>
-    <p>• I will take care of you like my baby 💕</p>
-    <p>• Unlimited love and attention 😘</p>
-    <p>• Free hugs and kisses forever 😌</p>
-  </div>
-
-  <div class="box">
-    <h2>❌ Cons</h2>
-    <p>• Nothing 😌</p>
-  </div>
-
-  <button class="btn-main" onclick="nextPage(4)">Continue 💖</button>
-</div>
-
-<!-- PAGE 4 -->
-<div id="page4" class="page">
-  <h1>So… Will you be my Valentine? 💋</h1>
-  <img src="https://share.google/X90RC8r2o7vw0Tx9b">
-  <br>
-  <button class="btn-main" onclick="yesClicked()">YES 💍💖</button>
 </div>
 
 <script>
-function nextPage(pageNumber) {
-  var pages = document.getElementsByClassName("page");
-  for (var i = 0; i < pages.length; i++) {
-    pages[i].classList.remove("active");
-  }
-  document.getElementById("page" + pageNumber).classList.add("active");
-}
 
-function yesClicked() {
-  document.body.innerHTML = `
-    <h1 style="margin-top:150px;">Yayyyyy! 💖💖💖</h1>
-    <h2>Forever Mine 😘</h2>
+function showSad(){
+  document.getElementById("content").innerHTML = `
+  <h1>You said No? 🥺</h1>
+  <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif">
+  <br>
+  <button class="yes" onclick="nextPage2()">Maybe I should explain the perks... Okay 😌</button>
   `;
 }
+
+function nextPage1(){
+  nextPage2();
+}
+
+function nextPage2(){
+  document.getElementById("content").innerHTML = `
+  <h1>Maybe I should explain the perks of being my valentine 💕</h1>
+  <button class="yes" onclick="nextPage3()">Okay 😌</button>
+  `;
+}
+
+function nextPage3(){
+  document.getElementById("content").innerHTML = `
+  <h1>Why you should choose me as your Valentine? 💖</h1>
+  <h2>Pros 😍</h2>
+  <p>• I will take care of you as my baby 🥰</p>
+  <p>• Unlimited love and hugs 🤗</p>
+  <p>• I will always support you 💕</p>
+  <h2>Cons 😏</h2>
+  <p>• Nothing 😌</p>
+  <br>
+  <button class="yes" onclick="finalPage()">Continue 💘</button>
+  `;
+}
+
+function finalPage(){
+  document.getElementById("content").innerHTML = `
+  <h1>Will you be my Valentine? 💖</h1>
+  <button class="yes" onclick="lovePage()">Yes 💕</button>
+  `;
+}
+
+function lovePage(){
+  document.getElementById("content").innerHTML = `
+  <h1>Yayyyy! 💋</h1>
+  <h2>Snekha ❤️ Bala Vignnesh</h2>
+  <h2>Love you purusha 😘</h2>
+  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+  `;
+}
+
 </script>
 
 </body>
