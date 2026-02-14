@@ -1,108 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For Bala 💖</title>
-<style>
-body{
-  margin:0;
-  padding:0;
-  text-align:center;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right,#ff758c,#ff7eb3);
-  color:white;
-}
+  <title>Snekha ❤️ Bala Vignnesh</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      color: white;
+    }
 
-.container{
-  margin-top:100px;
-}
+    h1 {
+      margin-top: 80px;
+      padding: 20px;
+    }
 
-button{
-  padding:12px 25px;
-  font-size:18px;
-  margin:15px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-}
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
 
-.yes{
-  background:#ff2e63;
-  color:white;
-}
+    .btn {
+      background-color: white;
+      color: #ff4d6d;
+      font-weight: bold;
+    }
 
-.no{
-  background:white;
-  color:black;
-}
-
-img{
-  margin-top:20px;
-  width:250px;
-  border-radius:10px;
-}
-
-</style>
+    img {
+      margin-top: 20px;
+      width: 250px;
+      border-radius: 15px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container" id="content">
+<div id="content">
 
-<h1>Babe, will you be my valentine? 💖</h1>
-
-<button class="yes" onclick="nextPage1()">Yes 💕</button>
-<button class="no" onclick="showSad()">No 😢</button>
+  <!-- STEP 1 -->
+  <h1>Babe, will you be my Valentine? 💖</h1>
+  <button class="btn" onclick="step2()">Yes 💕</button>
+  <button class="btn" onclick="sadGif()">No 😢</button>
 
 </div>
 
 <script>
 
-function showSad(){
+function sadGif() {
   document.getElementById("content").innerHTML = `
-  <h1>You said No? 🥺</h1>
-  <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif">
-  <br>
-  <button class="yes" onclick="nextPage2()">Maybe I should explain the perks... Okay 😌</button>
+    <h1>Why nooo 😭💔</h1>
+    <img src="https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif">
+    <br><br>
+    <button class="btn" onclick="step2()">Okay okay continue 😔</button>
   `;
 }
 
-function nextPage1(){
-  nextPage2();
-}
-
-function nextPage2(){
+function step2() {
   document.getElementById("content").innerHTML = `
-  <h1>Maybe I should explain the perks of being my valentine 💕</h1>
-  <button class="yes" onclick="nextPage3()">Okay 😌</button>
+    <h1>Maybe I should explain the perks of being my Valentine 😌💖</h1>
+    <button class="btn" onclick="step3()">Okay 💕</button>
   `;
 }
 
-function nextPage3(){
+function step3() {
   document.getElementById("content").innerHTML = `
-  <h1>Why you should choose me as your Valentine? 💖</h1>
-  <h2>Pros 😍</h2>
-  <p>• I will take care of you as my baby 🥰</p>
-  <p>• Unlimited love and hugs 🤗</p>
-  <p>• I will always support you 💕</p>
-  <h2>Cons 😏</h2>
-  <p>• Nothing 😌</p>
-  <br>
-  <button class="yes" onclick="finalPage()">Continue 💘</button>
+    <h1>Why you should choose me as your Valentine 😏</h1>
+
+    <h2>Pros 💖</h2>
+    <p>• I will take care of you as my baby 🥰</p>
+    <p>• Unlimited love and hugs 🤗</p>
+    <p>• I will always support you in everything 💕</p>
+
+    <h2>Cons 😜</h2>
+    <p>• Nothing 😌</p>
+
+    <br>
+    <button class="btn" onclick="step4()">Continue 💕</button>
   `;
 }
 
-function finalPage(){
+function step4() {
   document.getElementById("content").innerHTML = `
-  <h1>Will you be my Valentine? 💖</h1>
-  <button class="yes" onclick="lovePage()">Yes 💕</button>
+    <h1>Do you love me? 💖</h1>
+    <button class="btn" onclick="finalYes()">Yes 😘</button>
+    <button class="btn" onclick="sadAgain()">No 😢</button>
   `;
 }
 
-function lovePage(){
+function sadAgain() {
   document.getElementById("content").innerHTML = `
-  <h1>Yayyyy! 💋</h1>
-  <h2>Snekha ❤️ Bala Vignnesh</h2>
-  <h2>Love you purusha 😘</h2>
-  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+    <h1>Don’t break my heart Bala 😭💔</h1>
+    <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif">
+    <br><br>
+    <button class="btn" onclick="step4()">Try Again 😔</button>
+  `;
+}
+
+function finalYes() {
+  document.getElementById("content").innerHTML = `
+    <h1>Snekha ❤️ Bala Vignnesh</h1>
+    <h2>Love you purusha 😘💖</h2>
+    <img src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif">
   `;
 }
 
