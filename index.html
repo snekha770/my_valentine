@@ -1,46 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For Bala 💖</title>
+  <title>For My Babe 💖</title>
   <style>
     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       text-align: center;
-      font-family: Arial;
-      background: pink;
-      overflow: hidden;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: white;
+      overflow-x: hidden;
     }
+
+    .page {
+      display: none;
+      padding-top: 80px;
+    }
+
+    .active {
+      display: block;
+    }
+
     h1 {
-      margin-top: 100px;
+      font-size: 35px;
+      padding: 0 20px;
     }
+
     button {
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 18px;
       margin: 20px;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
     }
-    #noBtn {
-      position: absolute;
+
+    .btn-main {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    img {
+      width: 250px;
+      margin-top: 20px;
+      border-radius: 15px;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.2);
+      padding: 20px;
+      margin: 20px auto;
+      width: 70%;
+      border-radius: 15px;
     }
   </style>
 </head>
 <body>
 
-<h1>Will you be my Valentine Bala Vignnesh? 💖</h1>
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+  <h1>Babe, will you be my Valentine? 💖</h1>
+  <img src="https://share.google/SLSRjepTh5bapOZPb">
+  <br>
+  <button class="btn-main" onclick="nextPage(2)">Next 💕</button>
+</div>
 
-<button onclick="yesClicked()">Yes 💕</button>
-<button id="noBtn" onmouseover="moveButton()">No 😢</button>
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+  <h1>Maybe I should explain the perks of being my Valentine... 😌</h1>
+  <img src="https://share.google/5mGoP6Plvl9Ad6LYQ">
+  <br>
+  <button class="btn-main" onclick="nextPage(3)">Okay 😏</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+  <h1>Why you should choose me as your Valentine 💘</h1>
+  <img src="https://share.google/dRj07oeMsAGAqmNqk">
+
+  <div class="box">
+    <h2>✅ Pros</h2>
+    <p>• I will take care of you like my baby 💕</p>
+    <p>• Unlimited love and attention 😘</p>
+    <p>• Free hugs and kisses forever 😌</p>
+  </div>
+
+  <div class="box">
+    <h2>❌ Cons</h2>
+    <p>• Nothing 😌</p>
+  </div>
+
+  <button class="btn-main" onclick="nextPage(4)">Continue 💖</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="page">
+  <h1>So… Will you be my Valentine? 💋</h1>
+  <img src="https://share.google/X90RC8r2o7vw0Tx9b">
+  <br>
+  <button class="btn-main" onclick="yesClicked()">YES 💍💖</button>
+</div>
 
 <script>
-function yesClicked() {
-  document.body.innerHTML = "<h1>Yayyy! I love you Bala 💖 Forever and Always 😘</h1>";
+function nextPage(pageNumber) {
+  var pages = document.getElementsByClassName("page");
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].classList.remove("active");
+  }
+  document.getElementById("page" + pageNumber).classList.add("active");
 }
 
-function moveButton() {
-  var button = document.getElementById("noBtn");
-  var x = Math.random() * window.innerWidth;
-  var y = Math.random() * window.innerHeight;
-  button.style.left = x + "px";
-  button.style.top = y + "px";
+function yesClicked() {
+  document.body.innerHTML = `
+    <h1 style="margin-top:150px;">Yayyyyy! 💖💖💖</h1>
+    <h2>Forever Mine 😘</h2>
+  `;
 }
 </script>
 
